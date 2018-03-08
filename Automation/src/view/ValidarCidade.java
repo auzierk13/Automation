@@ -16,6 +16,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import control.Util;
 import control.Validador;
+import java.awt.Font;
 
 public class ValidarCidade extends JFrame {
 
@@ -40,7 +41,7 @@ public class ValidarCidade extends JFrame {
 	 */
 	public ValidarCidade() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 848, 757);
+		setBounds(100, 100, 1229, 782);
 		getContentPane().setLayout(null);
 		
 		
@@ -48,29 +49,33 @@ public class ValidarCidade extends JFrame {
 		Util util= new Util();
 	
 		JTextArea textAreaFile1 = new JTextArea();
+		textAreaFile1.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		textAreaFile1.setEditable(false);
 		textAreaFile1.setBounds(31, 86, 326, 320);
 		JScrollPane scrollPane = new JScrollPane(textAreaFile1);
-		scrollPane.setBounds(31, 86, 326, 320);
+		scrollPane.setBounds(31, 86, 450, 320);
 		getContentPane().add(scrollPane);
 
 		JTextArea textAreaFile2 = new JTextArea();
+		textAreaFile2.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		textAreaFile2.setBounds(479, 86, 318, 320);
 		textAreaFile2.setEditable(true);
 		JScrollPane scrollPane2 = new JScrollPane(textAreaFile2);
-		scrollPane2.setBounds(479, 86, 318, 320);
+		scrollPane2.setBounds(651, 86, 450, 320);
 		getContentPane().add(scrollPane2);
 
 		
 		JTextArea textAreaFile3 = new JTextArea();
+		textAreaFile3.setFont(new Font("Monospaced", Font.PLAIN, 20));
 		textAreaFile3.setEditable(false);
 		textAreaFile3.setBounds(31, 486, 775, 213);
 		JScrollPane scrollPane3 = new JScrollPane(textAreaFile3);
-		scrollPane3.setBounds(31, 486, 775, 213);
+		scrollPane3.setBounds(31, 514, 1070, 210);
 		getContentPane().add(scrollPane3);
 		
 		
 		JButton btnFile1 = new JButton("Estados + Cidades ");
+		btnFile1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnFile1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textAreaFile2.setText("");
@@ -88,10 +93,11 @@ public class ValidarCidade extends JFrame {
 		
 		btnFile1.setBackground(new Color(102, 205, 170));
 		btnFile1.setToolTipText("Ocorr\u00EAncia de Estados e Cidades corretos");
-		btnFile1.setBounds(31, 47, 326, 25);
+		btnFile1.setBounds(31, 33, 450, 40);
 		getContentPane().add(btnFile1);
 		
 		JButton btnFile2 = new JButton("Estados + Cidades ");
+		btnFile2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnFile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaFile2.setText("");
@@ -104,10 +110,11 @@ public class ValidarCidade extends JFrame {
 		});
 		btnFile2.setBackground(new Color(255, 99, 71));
 		btnFile2.setToolTipText("Ocorr\u00EAncia de Estados e Cidades errados");
-		btnFile2.setBounds(480, 47, 326, 25);
+		btnFile2.setBounds(651, 33, 450, 40);
 		getContentPane().add(btnFile2);
 		
 		JButton btnValidaEstadoCidade = new JButton("Valida Estados e Cidades");
+		btnValidaEstadoCidade.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnValidaEstadoCidade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Validar estado e cidades");
@@ -118,7 +125,7 @@ public class ValidarCidade extends JFrame {
 		});
 		btnValidaEstadoCidade.setToolTipText("Clique para iniciar valida\u00E7\u00E3o de estado de cidade");
 		btnValidaEstadoCidade.setBackground(Color.ORANGE);
-		btnValidaEstadoCidade.setBounds(238, 448, 326, 25);
+		btnValidaEstadoCidade.setBounds(408, 447, 326, 40);
 		getContentPane().add(btnValidaEstadoCidade);
 		
 		
