@@ -81,8 +81,8 @@ public class ValidarCidade extends JFrame {
 		JButton btnFile1 = new JButton("Estados + Cidades ");
 		btnFile1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				textAreaFile2.setText("");
 				System.out.println("Adicionar file 1");
-				
 				String path = abrirArquivo();
 				textAreaFile1.setText(util.lerArquivo(path)); //Limpa antes de Escrever
 				
@@ -100,6 +100,7 @@ public class ValidarCidade extends JFrame {
 		JButton btnFile2 = new JButton("Estados + Cidades ");
 		btnFile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				textAreaFile2.setText("");
 				System.out.println("Adicionar file 2");
 				String path = abrirArquivo();	
 				textAreaFile2.setText(util.lerArquivo(path)); //Limpa antes de Escrever
@@ -114,7 +115,7 @@ public class ValidarCidade extends JFrame {
 		btnValidaEstadoCidade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Validar estado e cidades");
-				validador.povoar(textAreaFile1.getText(),
+				validador.tratamentoDados(textAreaFile1.getText(),
 								 textAreaFile2.getText(),
 								 textAreaFile3.getText());
 			}
