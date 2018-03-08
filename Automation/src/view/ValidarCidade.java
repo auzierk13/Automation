@@ -19,6 +19,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
+import control.Util;
+import control.Validador;
+
 import javax.swing.JScrollBar;
 import javax.swing.JTextPane;
 
@@ -51,6 +55,8 @@ public class ValidarCidade extends JFrame {
 		getContentPane().setLayout(null);
 		
 		
+		Validador validador = new Validador();
+		Util util= new Util();
 	
 		JTextArea textAreaFile1 = new JTextArea();
 		textAreaFile1.setEditable(false);
@@ -77,7 +83,9 @@ public class ValidarCidade extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Adicionar file 1");
 				
-				abrirArquivo(textAreaFile1 );
+				String path = abrirArquivo();
+				textAreaFile1.setText(util.lerArquivo(path)); //Limpa antes de Escrever
+				
 			}
 
 			
@@ -93,7 +101,8 @@ public class ValidarCidade extends JFrame {
 		btnFile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Adicionar file 2");
-				abrirArquivo(textAreaFile2);
+				String path = abrirArquivo();	
+				textAreaFile2.setText(util.lerArquivo(path)); //Limpa antes de Escrever
 			}
 		});
 		btnFile2.setBackground(new Color(255, 99, 71));
@@ -105,6 +114,9 @@ public class ValidarCidade extends JFrame {
 		btnValidaEstadoCidade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Validar estado e cidades");
+				validador.povoar(textAreaFile1.getText(),
+								 textAreaFile2.getText(),
+								 textAreaFile3.getText());
 			}
 		});
 		btnValidaEstadoCidade.setToolTipText("Clique para iniciar valida\u00E7\u00E3o de estado de cidade");
@@ -119,15 +131,17 @@ public class ValidarCidade extends JFrame {
 		
 	}
 
-	public void abrirArquivo(JTextArea txtArea) {
+	public String abrirArquivo() {
 		JFileChooser chooser = new JFileChooser();
+		String path = null;
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 		    "Arquivo texto .txt", "txt");
 		chooser.setFileFilter(filter);
 		chooser.setDialogTitle("Selecione um arquivo .txt"); //titulo
 		 File currentDirectory = null;
 		try {
-			currentDirectory = new File(new File(".").getCanonicalPath());
+			//TODO remover \\src\\text\\
+			currentDirectory = new File(new File(".\\src\\text\\").getCanonicalPath());
 		} catch (IOException e) {
 			System.err.printf("Erro na abertura do arquivo: %s.\n",e.getMessage());
 		}
@@ -138,26 +152,13 @@ public class ValidarCidade extends JFrame {
 			
 		   System.out.println("Você escolheu abrir este arquivo: " +
 		        chooser.getSelectedFile().getAbsolutePath());
-		   lerArquivo(chooser.getSelectedFile().getAbsolutePath(), txtArea);
+		   path = chooser.getSelectedFile().getAbsolutePath();
+		   
 		}
-		
+		return path;
 		
 				
 	}
 
-	private void lerArquivo(String  absolutePath, JTextArea txtArea) {
-		BufferedReader br = null;
-				
-		try {
-			br = new BufferedReader(new FileReader(absolutePath));
-			while(br.ready()){
-				   String linha = br.readLine();
-				   txtArea.append(linha + "\n");
-				   System.out.println(linha);
-				}
-				br.close();
-		} catch ( IOException e) {
-			System.err.printf("Erro na abertura do arquivo: %s.\n",e.getMessage());
-		}
-	}
+	
 }

@@ -2,7 +2,8 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Pais_Brasil {
+public class Country {
 
 	ArrayList<Estado_cidades> estados= new ArrayList<Estado_cidades>();
 }
+ 
