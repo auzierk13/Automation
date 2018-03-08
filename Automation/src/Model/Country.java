@@ -15,35 +15,7 @@ public class Country {
 		this.estados = estados;
 	}
 	
-	public String  validaEstados(Estado_cidades estado) {
-		String resultadoParcial = "";
-		
-		if(this.estados.size()==0) {
-			System.out.println("Arquivo de estado e cidade corretos vazio");
-		}else {
-			for (Estado_cidades estado_cidades : estados) {
-				boolean hasCidadeErrada = true;
-				if(estado_cidades.getSiglaEstado().equals(estado.getSiglaEstado())) {
-					ArrayList<String> compararCidades = estado_cidades.getCidades();
-					
-					for (String cidade : compararCidades) {//Loop para comparar cidades escritas corretamente
-						if(cidade.equals(estado.getCidades().get(0))) {
-//							System.out.println("Cidade Correta");
-							hasCidadeErrada=false;
-							break;
-						}
-					}
-					if(hasCidadeErrada) {
-						resultadoParcial="Error na cidade "+estado.getCidades().get(0);
-						hasCidadeErrada=true;
-					}
-				}
-			}
-			
-			
-		}
-		return resultadoParcial;
-	}
+	
 
 	/**
 	 * Metodo addEstados Adiciona as cidades nos estados correspondente

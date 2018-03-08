@@ -1,5 +1,7 @@
 package control;
 
+import java.util.ArrayList;
+
 import Model.Country;
 import Model.Estado_cidades;
 
@@ -50,18 +52,48 @@ public class Validador {
 				estado.setNomeEstado(dadosEstadoCidade[0]);
 				estado.setSiglaEstado(dadosEstadoCidade[1]);
 				estado.setCidades(dadosEstadoCidade[2]);
-				String resultadoParcial= brasil.validaEstados(estado); 
+				String resultadoParcial= validaEstados(estado); 
 				if(!resultadoParcial.isEmpty()) {
 					resultadosFinal+= "Erro na linha "+i +": "+ resultadoParcial+ "\n";
 				}
 					
 			}else{
-				resultadosFinal+="Erro na linha "+ i + ": Linha em branco";
+				resultadosFinal+="Erro na linha "+ i + ": Linha em branco \n";
 			}
 			
 			
 		}
+		System.out.println(resultadosFinal );
 		return resultadosFinal;
+	}
+	public String  validaEstados(Estado_cidades estado) {
+		String resultadoParcial = "";
+		
+		if(brasil.getEstados().size()==0) {
+			System.out.println("Arquivo de estado e cidade corretos vazio");
+		}else {
+			for (Estado_cidades estado_cidades : brasil.getEstados()) {
+				boolean hasCidadeErrada = true;
+				if(estado_cidades.getSiglaEstado().equals(estado.getSiglaEstado())) {
+					ArrayList<String> compararCidades = estado_cidades.getCidades();
+					
+					for (String cidade : compararCidades) {//Loop para comparar cidades escritas corretamente
+						if(cidade.equals(estado.getCidades().get(0))) {
+//							System.out.println("Cidade Correta");
+							hasCidadeErrada=false;
+							break;
+						}
+					}
+					if(hasCidadeErrada) {
+						resultadoParcial="Error na cidade "+estado.getCidades().get(0);
+						hasCidadeErrada=true;
+					}
+				}
+			}
+			
+			
+		}
+		return resultadoParcial;
 	}
 
 	/**
