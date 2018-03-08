@@ -1,18 +1,18 @@
 package view;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import javax.swing.JTextPane;
 import javax.swing.JTextArea;
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class ValidarCidade extends JFrame {
 
@@ -60,8 +60,14 @@ public class ValidarCidade extends JFrame {
 		btnFile1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Adicionar file 1");
+				
+				abrirArquivo(btnFile1);
 			}
+
+			
 		});
+		
+		
 		btnFile1.setBackground(new Color(102, 205, 170));
 		btnFile1.setToolTipText("Ocorr\u00EAncia de Estados e Cidades corretos");
 		btnFile1.setBounds(31, 47, 326, 25);
@@ -71,6 +77,7 @@ public class ValidarCidade extends JFrame {
 		btnFile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Adicionar file 2");
+				abrirArquivo(btnFile2);
 			}
 		});
 		btnFile2.setBackground(new Color(255, 99, 71));
@@ -91,5 +98,27 @@ public class ValidarCidade extends JFrame {
 		
 		
 		
+	}
+
+	public void abrirArquivo(JButton btn) {
+		JFileChooser chooser = new JFileChooser();
+		FileNameExtensionFilter filter = new FileNameExtensionFilter(
+		    "Arquivo texto .txt", "txt");
+		chooser.setFileFilter(filter);
+		chooser.setDialogTitle("Selecione um arquivo .txt"); //titulo
+		 File currentDirectory = null;
+		try {
+			currentDirectory = new File(new File(".").getCanonicalPath());
+		} catch (IOException e) {
+			System.err.printf("Erro na abertura do arquivo: %s.\n",e.getMessage());
+		}
+		    chooser.setCurrentDirectory(currentDirectory);
+
+		int returnVal = chooser.showOpenDialog(btn);
+		if(returnVal == JFileChooser.APPROVE_OPTION) {
+			
+		   System.out.println("Você escolheu abrir este arquivo: " +
+		        chooser.getSelectedFile().getAbsolutePath());
+		}
 	}
 }
