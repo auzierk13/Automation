@@ -2,33 +2,22 @@ package view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import control.Util;
 import control.Validador;
 
-import javax.swing.JScrollBar;
-import javax.swing.JTextPane;
-
 public class ValidarCidade extends JFrame {
-
-	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
