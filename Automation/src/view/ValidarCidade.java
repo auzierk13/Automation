@@ -2,17 +2,25 @@ package view;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.JScrollBar;
+import javax.swing.JTextPane;
 
 public class ValidarCidade extends JFrame {
 
@@ -42,14 +50,22 @@ public class ValidarCidade extends JFrame {
 		setBounds(100, 100, 848, 757);
 		getContentPane().setLayout(null);
 		
+		
+	
 		JTextArea textAreaFile1 = new JTextArea();
 		textAreaFile1.setEditable(false);
 		textAreaFile1.setBounds(31, 86, 326, 320);
-		getContentPane().add(textAreaFile1);
-		
+		JScrollPane scrollPane = new JScrollPane(textAreaFile1);
+		scrollPane.setBounds(31, 86, 326, 320);
+		getContentPane().add(scrollPane);
+
 		JTextArea textAreaFile2 = new JTextArea();
-		textAreaFile2.setBounds(480, 86, 326, 320);
-		getContentPane().add(textAreaFile2);
+		textAreaFile2.setBounds(479, 86, 318, 320);
+		textAreaFile2.setEditable(true);
+		JScrollPane scrollPane2 = new JScrollPane(textAreaFile2);
+		scrollPane2.setBounds(479, 86, 318, 320);
+		getContentPane().add(scrollPane2);
+
 		
 		JTextArea textAreaFile3 = new JTextArea();
 		textAreaFile3.setEditable(false);
@@ -61,7 +77,7 @@ public class ValidarCidade extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				System.out.println("Adicionar file 1");
 				
-				abrirArquivo(btnFile1);
+				abrirArquivo(textAreaFile1 );
 			}
 
 			
@@ -77,7 +93,7 @@ public class ValidarCidade extends JFrame {
 		btnFile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Adicionar file 2");
-				abrirArquivo(btnFile2);
+				abrirArquivo(textAreaFile2);
 			}
 		});
 		btnFile2.setBackground(new Color(255, 99, 71));
@@ -98,9 +114,18 @@ public class ValidarCidade extends JFrame {
 		
 		
 		
+		JScrollBar scrollBar_1 = new JScrollBar();
+		scrollBar_1.setBounds(776, 86, 21, 320);
+		getContentPane().add(scrollBar_1);
+		
+		
+		
+	
+		
+		
 	}
 
-	public void abrirArquivo(JButton btn) {
+	public void abrirArquivo(JTextArea txtArea) {
 		JFileChooser chooser = new JFileChooser();
 		FileNameExtensionFilter filter = new FileNameExtensionFilter(
 		    "Arquivo texto .txt", "txt");
@@ -114,11 +139,31 @@ public class ValidarCidade extends JFrame {
 		}
 		    chooser.setCurrentDirectory(currentDirectory);
 
-		int returnVal = chooser.showOpenDialog(btn);
+		int returnVal = chooser.showOpenDialog(this);
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 			
 		   System.out.println("Você escolheu abrir este arquivo: " +
 		        chooser.getSelectedFile().getAbsolutePath());
+		   lerArquivo(chooser.getSelectedFile().getAbsolutePath(), txtArea);
+		}
+		
+		
+				
+	}
+
+	private void lerArquivo(String  absolutePath, JTextArea txtArea) {
+		BufferedReader br = null;
+				
+		try {
+			br = new BufferedReader(new FileReader(absolutePath));
+			while(br.ready()){
+				   String linha = br.readLine();
+				   txtArea.append(linha + "\n");
+				   System.out.println(linha);
+				}
+				br.close();
+		} catch ( IOException e) {
+			System.err.printf("Erro na abertura do arquivo: %s.\n",e.getMessage());
 		}
 	}
 }
