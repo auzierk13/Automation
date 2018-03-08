@@ -6,7 +6,14 @@ Enunciado:
 
  
 
-Existem 2 arquivos .TXT, um deles é uma lista correta de cidades (contêm todas as cidades do país, escritas de maneira correta) e o outro, também uma lista de cidades mas com alguns dados errados (essa lista sofreu inserções do usuário, por isso tem erros de português, etc). Monte um programa que identifique o erro na segunda lista (arquivo), escrevendo o resultado da diferença em um terceiro arquivo .TXT. Neste arquivo de diferença, eu preciso identificar exatamente onde está o erro e não somente exibir o erro.
+Existem 2 arquivos .TXT, um deles é uma lista correta de cidades
+ (contêm todas as cidades do país, escritas de maneira correta)
+ e o outro, também uma lista de cidades mas com alguns dados errados
+ (essa lista sofreu inserções do usuário, por isso tem erros de português, etc).
+ Monte um programa que identifique o erro na segunda lista (arquivo),
+ escrevendo o resultado da diferença em um terceiro arquivo .TXT.
+ Neste arquivo de diferença, eu preciso identificar exatamente onde
+ está o erro e não somente exibir o erro.
 
  
 
