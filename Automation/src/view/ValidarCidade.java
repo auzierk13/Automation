@@ -76,15 +76,20 @@ public class ValidarCidade extends JFrame {
 		JTextArea textAreaFile3 = new JTextArea();
 		textAreaFile3.setEditable(false);
 		textAreaFile3.setBounds(31, 486, 775, 213);
-		getContentPane().add(textAreaFile3);
+		JScrollPane scrollPane3 = new JScrollPane(textAreaFile3);
+		scrollPane3.setBounds(31, 486, 775, 213);
+		getContentPane().add(scrollPane3);
+		
 		
 		JButton btnFile1 = new JButton("Estados + Cidades ");
 		btnFile1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				textAreaFile2.setText("");
-				System.out.println("Adicionar file 1");
 				String path = abrirArquivo();
 				textAreaFile1.setText(util.lerArquivo(path)); //Limpa antes de Escrever
+				if(textAreaFile1.getText().isEmpty() ) {
+					System.out.println( "Obs. Este arquivo esta vazio");
+				}
 				
 			}
 
@@ -101,9 +106,11 @@ public class ValidarCidade extends JFrame {
 		btnFile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaFile2.setText("");
-				System.out.println("Adicionar file 2");
 				String path = abrirArquivo();	
 				textAreaFile2.setText(util.lerArquivo(path)); //Limpa antes de Escrever
+				if(textAreaFile2.getText().isEmpty() ) {
+					System.out.println( "Obs. Este arquivo esta vazio");
+				}
 			}
 		});
 		btnFile2.setBackground(new Color(255, 99, 71));
@@ -115,9 +122,9 @@ public class ValidarCidade extends JFrame {
 		btnValidaEstadoCidade.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Validar estado e cidades");
-				validador.tratamentoDados(textAreaFile1.getText(),
-								 textAreaFile2.getText(),
-								 textAreaFile3.getText());
+				textAreaFile3.setText("");
+				textAreaFile3.setText(validador.tratamentoDados(textAreaFile1.getText(),
+								 textAreaFile2.getText()));
 			}
 		});
 		btnValidaEstadoCidade.setToolTipText("Clique para iniciar valida\u00E7\u00E3o de estado de cidade");
@@ -151,7 +158,7 @@ public class ValidarCidade extends JFrame {
 		int returnVal = chooser.showOpenDialog(this);
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 			
-		   System.out.println("Você escolheu abrir este arquivo: " +
+		   System.out.println("Vocï¿½ escolheu abrir este arquivo: " +
 		        chooser.getSelectedFile().getAbsolutePath());
 		   path = chooser.getSelectedFile().getAbsolutePath();
 		   
