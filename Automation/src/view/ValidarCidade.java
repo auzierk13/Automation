@@ -114,12 +114,6 @@ public class ValidarCidade extends JFrame {
 		
 		
 		
-		JScrollBar scrollBar_1 = new JScrollBar();
-		scrollBar_1.setBounds(776, 86, 21, 320);
-		getContentPane().add(scrollBar_1);
-		
-		
-		
 	
 		
 		
