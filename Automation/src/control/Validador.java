@@ -45,7 +45,6 @@ public class Validador {
 		int i=0;
 		for (String linha : arrayOfLines) {
 			i++;
-//			System.out.println(linha);
 			if(!linha.isEmpty()) {
 				String [] dadosEstadoCidade = linha.split("\\|");
 				estado =  new Estado_cidades();// Sempre haverar uma cidade no vetor
@@ -66,31 +65,63 @@ public class Validador {
 		System.out.println(resultadosFinal );
 		return resultadosFinal;
 	}
-	public String  validaEstados(Estado_cidades estado) {
+	public String  validaEstados(Estado_cidades auxEstado) {
 		String resultadoParcial = "";
 		
 		if(brasil.getEstados().size()==0) {
-			System.out.println("Arquivo de estado e cidade corretos vazio");
+			System.out.println("Arquivo de estados e cidades corretos estar vazio");
 		}else {
+			 boolean hasSiglaErrada = true;
+			 boolean hasEstadoErrada = true;
+			 
 			for (Estado_cidades estado_cidades : brasil.getEstados()) {
 				boolean hasCidadeErrada = true;
-				if(estado_cidades.getSiglaEstado().equals(estado.getSiglaEstado())) {
+			
+				//Valida siglas
+				if(estado_cidades.getSiglaEstado().equals(auxEstado.getSiglaEstado())) {
+					hasSiglaErrada = false;
+				}
+				
+				///End valida siglas
+				
+				//Valida estado
+				if(estado_cidades.getNomeEstado().equals(auxEstado.getNomeEstado())) {
+					hasEstadoErrada = false;
+				}
+				
+				///End valida estado
+				
+				
+				//Valida cidades 
+				if(estado_cidades.getSiglaEstado().equals(auxEstado.getSiglaEstado())) {
 					ArrayList<String> compararCidades = estado_cidades.getCidades();
 					
 					for (String cidade : compararCidades) {//Loop para comparar cidades escritas corretamente
-						if(cidade.equals(estado.getCidades().get(0))) {
+						if(cidade.equals(auxEstado.getCidades().get(0))) {
 //							System.out.println("Cidade Correta");
 							hasCidadeErrada=false;
 							break;
 						}
 					}
 					if(hasCidadeErrada) {
-						resultadoParcial="Error na cidade "+estado.getCidades().get(0);
+						resultadoParcial="Error na cidade "+auxEstado.getCidades().get(0)+ " cidade nao encontrada no estado " + auxEstado.getNomeEstado() ;
 						hasCidadeErrada=true;
 					}
-				}
+				}//end Valida Cidade
+				
+				
+			}
+			if(hasSiglaErrada) {
+				
+				resultadoParcial="Error na sigla "+auxEstado.getSiglaEstado()+ " nao encontrada no estado " + auxEstado.getNomeEstado() ;
+				hasSiglaErrada=true;
 			}
 			
+			if(hasEstadoErrada) {
+				
+				resultadoParcial="Error no estado "+auxEstado.getNomeEstado()+ " Estado nao encontrada " ;
+				hasEstadoErrada=true;
+			}
 			
 		}
 		return resultadoParcial;
