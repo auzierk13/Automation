@@ -20,6 +20,7 @@ public class Validador {
 //		System.out.println(arrayOfLines.length);
 		Estado_cidades estado ;
 		for (String linha : arrayOfLines) {
+			if(!linha.isEmpty()) {
 //			System.out.println(linha);
 			String [] dadosEstadoCidade = linha.split("\\|");
 			estado =  new Estado_cidades();// Sempre haverar uma cidade no vetor
@@ -28,6 +29,7 @@ public class Validador {
 			estado.setCidades(dadosEstadoCidade[2]);
 			
 			brasil.addEstados(estado);
+			}
 		}
 		System.out.println(brasil.toString());
 	}

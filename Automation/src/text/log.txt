@@ -1,0 +1,57 @@
+Erro na linha 1: Error no estado ﻿Acre Estado nao encontrada 
+Erro na linha 11: Error na cidade Manoel cidade nao encontrada no estado Acre
+Erro na linha 12: Error na cidade Marechal Urbano cidade nao encontrada no estado Acre
+Erro na linha 762: Error na cidade Km Setecentos cidade nao encontrada no estado Bahia
+Erro na linha 846: Error na cidade Mucuripe cidade nao encontrada no estado Bahia
+Erro na linha 940: Error na cidade Pradoreira cidade nao encontrada no estado Bahia
+Erro na linha 941: Error na cidade Presidente Rodovia Dutra cidade nao encontrada no estado Bahia
+Erro na linha 942: Error na cidade Presidente Jânio Quadros ao Quadrado cidade nao encontrada no estado Bahia
+Erro na linha 1022: Error na cidade Satiro Dias Leme cidade nao encontrada no estado Bahia
+Erro na linha 1057: Error na cidade Tanquinho Trincado cidade nao encontrada no estado Bahia
+Erro na linha 1081: Error na cidade Ubaitaba Bacabal cidade nao encontrada no estado Bahia
+Erro na linha 1110: Error na cidade Wanderley Andrade cidade nao encontrada no estado Bahia
+Erro na linha 1172: Error na cidade Aurora BOreal cidade nao encontrada no estado Ceará
+Erro na linha 1181: Error na cidade Barra do Sotero Casado cidade nao encontrada no estado Ceará
+Erro na linha 1191: Error na cidade Baturité Teté cidade nao encontrada no estado Ceará
+Erro na linha 1206: Error na cidade Bonito que era feio cidade nao encontrada no estado Ceará
+Erro na linha 1277: Error na cidade Crato - GoW cidade nao encontrada no estado Ceará
+Erro na linha 1423: Error na cidade Jucas Balas cidade nao encontrada no estado Ceará
+Erro na linha 1506: Error na cidade Nascente do por do sol cidade nao encontrada no estado Ceará
+Erro na linha 1546: Error na cidade Parazinho do Pará cidade nao encontrada no estado Ceará
+Erro na linha 1547: Error na cidade Paripueira Paraponera cidade nao encontrada no estado Ceará
+Erro na linha 1548: Error na cidade Passagem de Ônibus cidade nao encontrada no estado Ceará
+Erro na linha 1567: Error na cidade Pio XI cidade nao encontrada no estado Ceará
+Erro na linha 1686: Error na cidade Refrigerante Taua cidade nao encontrada no estado Ceará
+Erro na linha 1689: Error na cidade Timonha Pamonha cidade nao encontrada no estado Ceará
+Erro na linha 1879: Error na cidade Vaquinha Mimosa do Sul cidade nao encontrada no estado Espírito Santo
+Erro na linha 1927: Error na cidade Rio Preto 3 cidade nao encontrada no estado Espírito Santo
+Erro na linha 2044: Error na cidade Cabeceiras de camas cidade nao encontrada no estado Goiás
+Erro na linha 2146: Error na cidade Itapurangaguá cidade nao encontrada no estado Goiás
+Erro na linha 5697: Linha em branco 
+Erro na linha 8789: Error na cidade Candido Mota da Motinha cidade nao encontrada no estado São Paulo
+Erro na linha 8871: Error na cidade Eneida Miranda cidade nao encontrada no estado São Paulo
+Erro na linha 8878: Error na cidade Espigão Doeste cidade nao encontrada no estado São Paulo
+Erro na linha 8887: Error na cidade Fatima Bernardes cidade nao encontrada no estado São Paulo
+Erro na linha 8892: Error na cidade Fernão Dias cidade nao encontrada no estado São Paulo
+Erro na linha 9040: Error na cidade Jau Peu cidade nao encontrada no estado São Paulo
+Erro na linha 9121: Error na cidade Girassol cidade nao encontrada no estado São Paulo
+Erro na linha 9189: Error na cidade Osvaldo Cruz Aranha cidade nao encontrada no estado São Paulo
+Erro na linha 9224: Error na cidade Pedra Belas cidade nao encontrada no estado São Paulo
+Erro na linha 9310: Error na cidade Ribeirão Grande 2 cidade nao encontrada no estado São Paulo
+Erro na linha 9315: Error na cidade Rifacina cidade nao encontrada no estado São Paulo
+Erro na linha 9318: Error na cidade Rio Claro Noturno cidade nao encontrada no estado São Paulo
+Erro na linha 9339: Error na cidade Salto Duplo Carpado cidade nao encontrada no estado São Paulo
+Erro na linha 9393: Error na cidade São Berto Bento cidade nao encontrada no estado São Paulo
+Erro na linha 9451: Error na cidade Suinananana cidade nao encontrada no estado São Paulo
+Erro na linha 9487: Error na cidade Tiete do Agreste cidade nao encontrada no estado São Paulo
+Erro na linha 9514: Error na cidade Urupema cidade nao encontrada no estado São Paulo
+Erro na linha 9540: Error na cidade Votorantimirim cidade nao encontrada no estado São Paulo
+Erro na linha 9565: Error na cidade Babaculândia do Norte cidade nao encontrada no estado Tocantins
+Erro na linha 9613: Error na cidade Guaraipolis cidade nao encontrada no estado Tocantins
+Erro na linha 9622: Error na cidade Juarinara cidade nao encontrada no estado Tocantins
+Erro na linha 9623: Error na cidade Jussaras cidade nao encontrada no estado Tocantins
+Erro na linha 9626: Error na cidade Lajeados cidade nao encontrada no estado Tocantins
+Erro na linha 9628: Error na cidade Lizardas cidade nao encontrada no estado Tocantins
+Erro na linha 9635: Error na cidade Miranorte do Sul cidade nao encontrada no estado Tocantins
+Erro na linha 9714: Error na cidade Porangaba12121 cidade nao encontrada no estado São Paulo
+

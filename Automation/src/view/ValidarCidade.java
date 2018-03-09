@@ -41,7 +41,7 @@ public class ValidarCidade extends JFrame {
 	 */
 	public ValidarCidade() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1229, 782);
+		setBounds(100, 100, 1150, 776);
 		getContentPane().setLayout(null);
 		
 		
@@ -119,14 +119,18 @@ public class ValidarCidade extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Validar estado e cidades");
 				textAreaFile3.setText("");
-				textAreaFile3.setText(validador.tratamentoDados(textAreaFile1.getText(),
-								 textAreaFile2.getText()));
+				String log =validador.tratamentoDados(textAreaFile1.getText(),
+						 textAreaFile2.getText());
+				textAreaFile3.setText(log);
+				util.escreverLog(log);
+							
 			}
 		});
 		btnValidaEstadoCidade.setToolTipText("Clique para iniciar valida\u00E7\u00E3o de estado de cidade");
 		btnValidaEstadoCidade.setBackground(Color.ORANGE);
 		btnValidaEstadoCidade.setBounds(408, 447, 326, 40);
 		getContentPane().add(btnValidaEstadoCidade);
+		
 		
 		
 		
@@ -154,7 +158,7 @@ public class ValidarCidade extends JFrame {
 		int returnVal = chooser.showOpenDialog(this);
 		if(returnVal == JFileChooser.APPROVE_OPTION) {
 			
-		   System.out.println("Voc� escolheu abrir este arquivo: " +
+		   System.out.println("Você escolheu abrir este arquivo: " +
 		        chooser.getSelectedFile().getAbsolutePath());
 		   path = chooser.getSelectedFile().getAbsolutePath();
 		   
@@ -163,6 +167,4 @@ public class ValidarCidade extends JFrame {
 		
 				
 	}
-
-	
 }
