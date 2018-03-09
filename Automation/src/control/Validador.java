@@ -23,12 +23,14 @@ public class Validador {
 			if(!linha.isEmpty()) {
 //			System.out.println(linha);
 			String [] dadosEstadoCidade = linha.split("\\|");
-			estado =  new Estado_cidades();// Sempre haverar uma cidade no vetor
-			estado.setNomeEstado(dadosEstadoCidade[0]);
-			estado.setSiglaEstado(dadosEstadoCidade[1]);
-			estado.setCidades(dadosEstadoCidade[2]);
-			
-			brasil.addEstados(estado);
+			if(dadosEstadoCidade.length==3) { //Estado sigla cidade 
+				estado =  new Estado_cidades();// Sempre haverar uma cidade no vetor
+				estado.setNomeEstado(dadosEstadoCidade[0]);
+				estado.setSiglaEstado(dadosEstadoCidade[1]);
+				estado.setCidades(dadosEstadoCidade[2]);
+				
+				brasil.addEstados(estado);
+				}
 			}
 		}
 		System.out.println(brasil.toString());
@@ -49,14 +51,17 @@ public class Validador {
 			i++;
 			if(!linha.isEmpty()) {
 				String [] dadosEstadoCidade = linha.split("\\|");
-				estado =  new Estado_cidades();// Sempre haverar uma cidade no vetor
-				estado.setNomeEstado(dadosEstadoCidade[0]);
-				estado.setSiglaEstado(dadosEstadoCidade[1]);
-				estado.setCidades(dadosEstadoCidade[2]);
-				String resultadoParcial= validaEstados(estado); 
-				if(!resultadoParcial.isEmpty()) {
-					resultadosFinal+= "Erro na linha "+i +": "+ resultadoParcial+ "\n";
+				if(dadosEstadoCidade.length!=0) {
+					estado =  new Estado_cidades();// Sempre haverar uma cidade no vetor
+					estado.setNomeEstado(dadosEstadoCidade[0]);
+					estado.setSiglaEstado(dadosEstadoCidade[1]);
+					estado.setCidades(dadosEstadoCidade[2]);
+					String resultadoParcial= validaEstados(estado); 
+					if(!resultadoParcial.isEmpty()) {
+						resultadosFinal+= "Erro na linha "+i +": "+ resultadoParcial+ "\n";
+					}
 				}
+				
 					
 			}else{
 				resultadosFinal+="Erro na linha "+ i + ": Linha em branco \n";

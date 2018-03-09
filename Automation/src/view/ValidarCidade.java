@@ -80,7 +80,9 @@ public class ValidarCidade extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				textAreaFile2.setText("");
 				String path = abrirArquivo();
-				textAreaFile1.setText(util.lerArquivo(path)); //Limpa antes de Escrever
+				if(path != null) { //So pode ler arquivo se tem caminho
+					textAreaFile1.setText(util.lerArquivo(path)); //Limpa antes de Escrever
+				}
 				if(textAreaFile1.getText().isEmpty() ) {
 					System.out.println( "Obs. Este arquivo esta vazio");
 				}
@@ -101,8 +103,11 @@ public class ValidarCidade extends JFrame {
 		btnFile2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textAreaFile2.setText("");
-				String path = abrirArquivo();	
-				textAreaFile2.setText(util.lerArquivo(path)); //Limpa antes de Escrever
+				String path = abrirArquivo();
+				if(path != null) { //So pode ler arquivo se tem caminho
+					textAreaFile2.setText(util.lerArquivo(path)); //Limpa antes de Escrever
+				}
+				
 				if(textAreaFile2.getText().isEmpty() ) {
 					System.out.println( "Obs. Este arquivo esta vazio");
 				}
